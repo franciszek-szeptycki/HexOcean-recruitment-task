@@ -14,12 +14,12 @@ export default ({dishType, form}: {dishType: DishTypeType, form: any}) => {
 
 
     return (
-        <div className="details-wrapper">
+        <>
             <DetailInputField name="no_of_slices" labelName="Number of Slices" selected={dishType === "pizza"} />
             <DetailInputField name="diameter" labelName="Diameter" step={0.01} selected={dishType === "pizza"} />
             <DetailInputField labelName="Spiciness Scale" name="spiciness_scale" max={10} selected={dishType === "soup"} />
             <DetailInputField labelName="Slices of Bread" name="slices_of_bread" max={10} selected={dishType === "sandwich"} />
-        </div>
+        </>
     )
 }
 
