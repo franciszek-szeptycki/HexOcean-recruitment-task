@@ -14,7 +14,7 @@ export default ({dishType, form}: {dishType: DishTypeType, form: any}) => {
 
 
     return (
-        <div>
+        <div className="details-wrapper">
             <DetailInputField name="no_of_slices" labelName="Number of Slices" selected={dishType === "pizza"} />
             <DetailInputField name="diameter" labelName="Diameter" step={0.01} selected={dishType === "pizza"} />
             <DetailInputField labelName="Spiciness Scale" name="spiciness_scale" max={10} selected={dishType === "soup"} />
@@ -24,8 +24,8 @@ export default ({dishType, form}: {dishType: DishTypeType, form: any}) => {
 }
 
 const DetailInputField = ({labelName, name, step = null, max = null, selected}: {labelName: string, name: string, step?: number | null, max?: number | null, selected: boolean}) => (
-    <div style={{display: selected ? "block" : "none"}} >
-        <label>{labelName}:</label>
-        <Field name={name} component="input" type="number" step={step}  min={1} max={max} validate={value => selected ? !value : false} />
+    <div className={`form__item ${selected ? "" : "form__item-hidden"}`} >
+        <label className="form__item-label" >{labelName}:</label>
+        <Field name={name} component="input" type="number" step={step}  min={1} max={max} validate={value => selected ? !value : false} className="form__item-input" />
     </div>
 )

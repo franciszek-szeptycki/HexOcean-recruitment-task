@@ -7,7 +7,7 @@ export default () => {
 
 
     return (
-        <div>
+        <div className="App" >
             <FormContainer />
             <ToastContainer />
         </div>

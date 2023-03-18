@@ -33,20 +33,21 @@ export default () => {
             onSubmit={(values: IFormData) => submitForm(values)}
             subscription={{ submitting: true }}
             render={({ handleSubmit, form, submitting }) => (
-                <form data-testid="form" onSubmit={handleSubmit}>
-                    <div>
-                        <label>Dish Name:</label>
-                        <Field name="name" component="input" type="text" placeholder="Enter dish name" />
+                <form data-testid="form" className="form main-form" onSubmit={handleSubmit}>
+                    <h1 className="form__title" >Create an order</h1>
+                    <div className="form__item" >
+                        <label className="form__item-label" >Dish Name:</label>
+                        <Field name="name" component="input" type="text" placeholder="Enter dish name" className="form__item-input" />
                     </div>
 
-                    <div>
-                        <label>Preparation Time:</label>
-                        <Field name="preparation_time" component="input" type="time" defaultValue="00:00:00" step={1} />
+                    <div className="form__item" >
+                        <label className="form__item-label" >Preparation Time:</label>
+                        <Field name="preparation_time" component="input" type="time" defaultValue="00:00:00" step={1} className="form__item-input" />
                     </div>
 
-                    <div >
-                        <label>Dish Type</label>
-                        <Field name="type" component="select" validate={(value) => {
+                    <div className="form__item" >
+                        <label className="form__item-label" >Dish Type</label>
+                        <Field name="type" component="select" className="form__item-input" validate={(value) => {
                             setDishType(value)
                             return !value
                         }} >
@@ -59,7 +60,7 @@ export default () => {
 
                     <DetailsForm dishType={dishType} form={form} />
 
-                    <button type="submit" disabled={submitting} >Submit</button>
+                    <button type="submit" disabled={submitting} className="form__submit" >Submit</button>
                 </form>
             )}
         />

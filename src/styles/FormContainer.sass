@@ -1,0 +1,68 @@
+@import "variables"
+
+
+.details-wrapper
+    display: flex
+    flex-direction: column
+    padding-bottom: $form-gap-size
+
+.form
+    height: 85vh
+    width: 100vw
+
+    position: absolute
+    top: 5vh
+    z-index: 2
+
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+
+    padding: 15px
+
+
+    &__title
+        font-size: 2.2rem
+        padding: 5px 0 10px
+
+    .form__item
+        height: 60px
+
+        display: flex
+        flex-direction: column
+        padding: 5px 10px
+
+        border-radius: 5px
+
+        overflow: hidden
+
+        transition: .2s
+
+        &-hidden
+            height: 0
+            padding: 0 10px
+            opacity: 0
+
+        &-label
+            color: #0092c4
+            font-size: .8rem
+
+        &-input
+            border: none
+            border-bottom: 2px lightgray solid
+            padding: 5px 0
+            font-size: 1.2rem
+
+            &:focus
+                outline: none
+                border-bottom-color: $primary-color
+
+    &__submit
+        height: 50px
+
+        border: none
+
+        background-color: $dark-color
+        color: white
+        text-transform: uppercase
+
