@@ -2,16 +2,13 @@
 
 
 .form
-    height: 85vh
     width: 100vw
 
-    position: absolute
-    top: 5vh
     z-index: 2
 
     display: flex
     flex-direction: column
-    justify-content: space-between
+    gap: 10px
 
     padding: 15px
 
@@ -34,8 +31,8 @@
         transition: .2s
 
         &-hidden
-            height: 0
-            padding: 0 10px
+            height: 0 !important
+            padding: 0 10px !important
             opacity: 0
             display: block
 
@@ -48,10 +45,16 @@
             border-bottom: 2px lightgray solid
             padding: 5px 0
             font-size: 1.2rem
+            background-color: transparent
 
             &:focus
                 outline: none
                 border-bottom-color: $primary-color
+
+    .details-wrapper
+        .form__item
+            padding-bottom: 15px
+            height: 70px
 
     &__submit
         height: 50px
