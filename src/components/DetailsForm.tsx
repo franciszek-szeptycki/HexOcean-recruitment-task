@@ -15,26 +15,17 @@ export default ({dishType, form}: {dishType: DishTypeType, form: any}) => {
 
     return (
         <div>
-            {dishType === 'pizza' && (
-                <>
-                    <DetailInputField name="no_of_slices" labelName="Number of Slices"/>
-                    <DetailInputField name="diameter" labelName="Diameter" step={0.01} />
-                </>
-            )}
-            {dishType === 'soup' && (
-                    <DetailInputField labelName="Spiciness Scale" name="spiciness_scale" max={10} />
-            )}
-
-            {dishType === 'sandwich' && (
-                <DetailInputField labelName="Slices of Bread" name="slices_of_bread" max={10} />
-            )}
+            <DetailInputField name="no_of_slices" labelName="Number of Slices" selected={dishType === "pizza"} />
+            <DetailInputField name="diameter" labelName="Diameter" step={0.01} selected={dishType === "pizza"} />
+            <DetailInputField labelName="Spiciness Scale" name="spiciness_scale" max={10} selected={dishType === "soup"} />
+            <DetailInputField labelName="Slices of Bread" name="slices_of_bread" max={10} selected={dishType === "sandwich"} />
         </div>
     )
 }
 
-const DetailInputField = ({labelName, name, step = null, max = null}: {labelName: string, name: string, step?: number | null, max?: number | null }) => (
-    <div>
+const DetailInputField = ({labelName, name, step = null, max = null, selected}: {labelName: string, name: string, step?: number | null, max?: number | null, selected: boolean}) => (
+    <div style={{display: selected ? "block" : "none"}} >
         <label>{labelName}:</label>
-        <Field name={name} component="input" type="number" step={step}  min={1} max={max} validate={value => !value} />
+        <Field name={name} component="input" type="number" step={step}  min={1} max={max} validate={value => selected ? !value : false} />
     </div>
 )
