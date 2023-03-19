@@ -35,35 +35,55 @@ export default () => {
         <Form
             onSubmit={(values: IFormData) => submitForm(values)}
             subscription={{ submitting: true }}
-            render={({ handleSubmit, form, submitting }) => (
-                <form data-testid="form" className="form main-form" onSubmit={handleSubmit}>
-                    <h1 className="form__title" >Create an <span>order</span>.</h1>
+            render={({ handleSubmit, form, submitting }) => {
 
-                    <div className="form__item" >
-                        <label className="form__item-label" >Name:</label>
-                        <Field name="name" component="input" type="text" placeholder="What's the name of your dish?" className="form__item-input" />
-                    </div>
+                const {values} = form.getState()
 
-                    <div className="form__item" >
-                        <label className="form__item-label" >Preparation time:</label>
-                        <Field name="preparation_time" component="input" type="time"  step={1} className="form__item-input" />
-                    </div>
+                useEffect(() => {
+                    const baseProps = ['name', 'preparation_time', 'type']
+                    for (const key in values) {
+                        // @ts-ignore
+                        if (!baseProps.includes(key)) form.change(key, undefined)
+                    }
+                }, [dishType])
 
-                    <div className="form__item" >
-                        <label className="form__item-label" >Type:</label>
-                        <Field name="type" component="select" className="form__item-input" validate={value => setDishType(value)} >
-                            <option value="" >---</option>
-                            <option value="pizza" >Pizza</option>
-                            <option value="soup" >Soup</option>
-                            <option value="sandwich" >Sandwich</option>
-                        </Field>
-                    </div>
+                useEffect(() => {
+                    form.reset()
+                }, [updatedTime])
 
-                    <DetailsForm dishType={dishType} form={form} updatedTime={updatedTime}/>
+                return (
+                    <form data-testid="form" className="form main-form" onSubmit={handleSubmit}>
+                        <h1 className="form__title">Create an <span>order</span>.</h1>
 
-                    <button type="submit" disabled={submitting} className="form__submit" >Submit</button>
-                </form>
-            )}
+                        <div className="form__item">
+                            <label className="form__item-label">Name:</label>
+                            <Field name="name" component="input" type="text" placeholder="What's the name of your dish?"
+                                   className="form__item-input"/>
+                        </div>
+
+                        <div className="form__item">
+                            <label className="form__item-label">Preparation time:</label>
+                            <Field name="preparation_time" component="input" type="time" step={1}
+                                   className="form__item-input"/>
+                        </div>
+
+                        <div className="form__item">
+                            <label className="form__item-label">Type:</label>
+                            <Field name="type" component="select" className="form__item-input"
+                                   validate={value => setDishType(value)}>
+                                <option value="">---</option>
+                                <option value="pizza">Pizza</option>
+                                <option value="soup">Soup</option>
+                                <option value="sandwich">Sandwich</option>
+                            </Field>
+                        </div>
+
+                        <DetailsForm dishType={dishType} />
+
+                        <button type="submit" disabled={submitting} className="form__submit">Submit</button>
+                    </form>
+                )
+            }}
         />
     );
 };

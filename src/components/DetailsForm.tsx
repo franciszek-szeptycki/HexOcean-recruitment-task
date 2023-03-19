@@ -2,21 +2,7 @@ import {Field} from "react-final-form";
 import React, {useEffect} from "react";
 import {DishTypeType} from "../assets/types";
 
-export default ({dishType, form, updatedTime}: {dishType: DishTypeType, form: any, updatedTime: Date}) => {
-
-    const {values} = form.getState()
-
-    useEffect(() => {
-        const baseValues = ['name', 'preparation_time', 'type']
-        for (let key in values) {
-            if (!baseValues.includes(key)) form.change(key, undefined)
-        }
-    }, [dishType])
-
-    useEffect(() => {
-        form.reset()
-    }, [updatedTime])
-
+export default ({dishType}: {dishType: DishTypeType}) => {
 
     return (
         <div className="details-wrapper">
