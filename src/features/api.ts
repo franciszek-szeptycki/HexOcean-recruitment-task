@@ -23,16 +23,16 @@ export const resFailed = (err: any) => {
     // GENERATING ERROR MESSAGE FOR EVERY INVALID FIELD
     for (const prop in err.response.data) {
         const propToName: any = {
-            "name": "Name",
+            "name": "Dish name",
             "preparation_time": "Preparation time",
-            "type": "Type",
+            "type": "Dish type",
             "no_of_slices": "Number of slices",
             "diameter": "Diameter",
             "spiciness_scale": "Spiciness scale",
-            "slices_of_bread": "Slices of bread"
+            "slices_of_bread": "Number of slices of bread"
         }
 
         // SETTING UP ERROR MESSAGE
-        toast(`${propToName[prop]} ${err.response.data[prop][0]}`, {type: "error", autoClose: 2000})
+        toast(`"${propToName[prop]}" ${err.response.data[prop][0]}`, {type: "error", autoClose: 2000})
     }
 }
