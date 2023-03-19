@@ -1,6 +1,7 @@
 @import "variables"
 
 
+// FORM
 .form
     width: 100vw
     max-width: 500px
@@ -13,7 +14,7 @@
 
     padding: 20px
 
-
+    // FORM TITLE
     &__title
         font-size: 2.2rem
         padding: 5px 0 10px
@@ -21,6 +22,7 @@
         span
             color: $primary-color
 
+    // FORM FIELDS
     .form__item
         height: 60px
 
@@ -29,43 +31,44 @@
         padding: 5px 0
 
         border-radius: 5px
-
         overflow: hidden
-
         transition: .2s
-
-        &-hidden
-            height: 0 !important
-            padding: 0 !important
-            opacity: 0
-            display: block
 
         &-label
             color: #0092c4
             font-size: .8rem
 
         &-input
+            width: 100%
+
+            padding: 5px 0
+
             border: none
             border-bottom: 2px lightgray solid
-            padding: 5px 0
-            font-size: 1.2rem
             background-color: transparent
+            font-size: 1.2rem
 
             &:focus
                 outline: none
                 border-bottom-color: $primary-color
 
+    // FOR UNUSED DETAIL FIELDS
     .details-wrapper
         .form__item
-            padding-bottom: 15px
             height: 70px
+            padding-bottom: 15px
 
+            &-hidden
+                height: 0
+                padding: 0
+                opacity: 0
+                display: block
+
+    //SUBMIT BUTTON
     &__submit
         height: 50px
 
         border: none
-
         background-color: $dark-color
         color: white
         text-transform: uppercase
-

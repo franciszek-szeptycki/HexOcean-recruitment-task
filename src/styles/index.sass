@@ -1,6 +1,5 @@
 @import "variables"
 
-
 // RESET
 *
     margin: 0
@@ -14,8 +13,12 @@ body
     font-size: 16px
     color: $dark-color
 
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active
+    -webkit-box-shadow: 0 0 0 30px white inset !important
+    -webkit-text-fill-color: $dark-color !important
+
 
 // MODULES
-@import "FormContainer"
+@import "Form"
 @import "App"
 

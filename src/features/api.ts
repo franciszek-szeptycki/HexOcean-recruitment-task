@@ -1,18 +1,26 @@
 import {toast} from "react-toastify";
-import {Dispatch, SetStateAction} from "react";
 
-export const resSuccess = (setUpdatedTime: Dispatch<SetStateAction<Date>>) => {
-    toast("Data processed successfully!", {toastId: "success", type: "success"})
-    setUpdatedTime(new Date())
+
+// SERVER RESPONSE - SUCCESS
+export const resSuccess = () => {
+
+    // SETTING UP SUCCESS MESSAGE
+    toast("Data processed successfully!", {type: "success", autoClose: 3000})
 }
 
-export const resServerError = () => {
-    toast("Server error, try again later...", {toastId: "server-error", type: "error"})
-}
 
+// SERVER RESPONSE - NETWORK ERROR
+export const resNetworkError = (() => {
+
+    // SETTING UP NETWORK ERROR MESSAGE
+    toast("Network error, try again later...", {type: "error", autoClose: 2000})
+})
+
+
+// SERVER RESPONSE - FAILED
 export const resFailed = (err: any) => {
-    toast.dismiss("processing")
 
+    // GENERATING ERROR MESSAGE FOR EVERY INVALID FIELD
     for (const prop in err.response.data) {
         const propToName: any = {
             "name": "Name",
@@ -23,6 +31,8 @@ export const resFailed = (err: any) => {
             "spiciness_scale": "Spiciness scale",
             "slices_of_bread": "Slices of bread"
         }
-        toast(`${propToName[prop]} ${err.response.data[prop][0]}`, {toastId: prop, type: "error"})
+
+        // SETTING UP ERROR MESSAGE
+        toast(`${propToName[prop]} ${err.response.data[prop][0]}`, {type: "error", autoClose: 2000})
     }
 }

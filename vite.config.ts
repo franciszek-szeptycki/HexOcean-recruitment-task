@@ -5,9 +5,4 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
     plugins: [react()],
     base: '/HexOcean-recruitment-task/',
-    // @ts-ignore
-    test: {
-        globals: true,
-        environment: "jsdom",
-    }
 })

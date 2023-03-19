@@ -12,5 +12,4 @@ export interface IFormData {
     slices_of_bread?: number,
 }
 
-
 export type DishTypeType = "pizza" | "soup" | "sandwich" | ""
