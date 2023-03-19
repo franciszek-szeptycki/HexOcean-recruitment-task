@@ -10,7 +10,7 @@
 3. `npm install`
 4. `npm run dev`
 
-## Time to complete the task:
+## Task execution time:
  - `1 hours`  Learning about react-final-form / redux-form
  - `4 hours`  Coding in React
  - `1 hours`  Designing the interface
