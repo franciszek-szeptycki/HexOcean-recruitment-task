@@ -5,7 +5,7 @@ import { DurationField, DetailedFieldsWrapper, DishField, SelectDishField } from
 
 export default ({dishType, handleSubmit, setDishType, form, disabled}: {dishType: DishTypeType, handleSubmit: any, setDishType: any, form: any, disabled: boolean}) => {
 
-    // RESETING DETAILED INPUTS CHANGING DISH TYPE
+    // RESETING DETAILED INPUTS ON CHANGING DISH TYPE
     useEffect(() => {
         const {values} = form.getState()
         const baseProps = ['name', 'preparation_time', 'type']

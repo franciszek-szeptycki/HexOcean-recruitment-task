@@ -15,6 +15,7 @@ export default () => {
     // HANDLING FORM SUBMIT TIME ( FOR RESETTING FORM )
     const [submitTime, setSubmitTime] = useState(new Date());
 
+    // HANDLING FORM BLOCKING
     const [disabled, setDisabled] = useState(false);
 
 
@@ -32,7 +33,6 @@ export default () => {
             isLoading: true
         })
 
-        // SUBMITTING FORM
         axios.post('https://umzzcc503l.execute-api.us-west-2.amazonaws.com/dishes', formData)
             // POSITIVE
             .then(() => {

@@ -3,7 +3,7 @@ import React, { Dispatch, SetStateAction } from "react";
 import {DishTypeType} from "../assets/types";
 
 
-// WHAT'S NAME OF YOUR DISH?
+// DISH NAME FIELD?
 export const DishField = () => (
     <div className="form__item">
         <label className="form__item-label">Dish name:</label>
@@ -13,7 +13,7 @@ export const DishField = () => (
 )
 
 
-// PREPARATION TIME
+// PREPARATION TIME FIELD
 export const DurationField = () => (
     <div className="form__item">
         <label className="form__item-label">Preparation time:</label>
@@ -23,7 +23,7 @@ export const DurationField = () => (
 )
 
 
-// SELECT TYPE OF DISH
+// SELECT TYPE OF DISH FIELD
 export const SelectDishField = ({setDishType}: {setDishType: Dispatch<SetStateAction<DishTypeType>>}) => (
     <div className="form__item">
         <label className="form__item-label">Dish type:</label>
@@ -47,7 +47,7 @@ export const DetailedFieldsWrapper = ({dishType}: {dishType: DishTypeType}) => (
     </div>
 )
 
-// DETAILED FIELD
+// DETAILED FIELD TEMPLATE
 const DetailedField = ({labelName, name, step = null, max = null, selected, placeholder}: {labelName: string, name: string, step?: number | null, max?: number | null, selected: boolean, placeholder: string}) => (
     <div className={`form__item ${selected ? "" : "form__item-hidden"}`} >
         <label className="form__item-label" >{labelName}:</label>

@@ -20,7 +20,7 @@ export const resNetworkError = (() => {
 // SERVER RESPONSE - FAILED
 export const resFailed = (err: any) => {
 
-    // GENERATING ERROR MESSAGE FOR EVERY INVALID FIELD
+    // SETTING UP ERROR MESSAGE FOR EVERY INVALID FIELD
     for (const prop in err.response.data) {
         const propToName: any = {
             "name": "Dish name",
@@ -32,7 +32,6 @@ export const resFailed = (err: any) => {
             "slices_of_bread": "Number of slices of bread"
         }
 
-        // SETTING UP ERROR MESSAGE
         toast(`"${propToName[prop]}" ${err.response.data[prop][0]}`, {type: "error", autoClose: 2000})
     }
 }
