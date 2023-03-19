@@ -1,6 +1,7 @@
-import {Field} from "react-final-form";
-import React, {Dispatch, SetStateAction, useEffect} from "react";
+import { Field } from "react-final-form";
+import React, { Dispatch, SetStateAction } from "react";
 import {DishTypeType} from "../assets/types";
+
 
 // WHAT'S NAME OF YOUR DISH?
 export const DishInput = () => (
@@ -11,7 +12,7 @@ export const DishInput = () => (
     </div>
 )
 
-// PREPARATION TIME?
+// PREPARATION TIME
 export const DateInput = () => (
     <div className="form__item">
         <label className="form__item-label">Preparation time:</label>
@@ -21,6 +22,7 @@ export const DateInput = () => (
 )
 
 
+// SELECT TYPE OF DISH
 export const SelectDishInput = ({setDishType}: {setDishType: Dispatch<SetStateAction<DishTypeType>>}) => (
     <div className="form__item">
         <label className="form__item-label">Type:</label>
@@ -34,7 +36,7 @@ export const SelectDishInput = ({setDishType}: {setDishType: Dispatch<SetStateAc
     </div>
 )
 
-
+// DETAILS INPUTS WRAPPER
 export const DetailsInputWrapper = ({dishType}: {dishType: DishTypeType}) => (
     <div className="details-wrapper">
         <DetailInputField name="no_of_slices" labelName="Number of slices" selected={dishType === "pizza"} placeholder="How many pizza slices?" />
@@ -44,7 +46,7 @@ export const DetailsInputWrapper = ({dishType}: {dishType: DishTypeType}) => (
     </div>
 )
 
-
+// DETAIL INPUT FIELD
 const DetailInputField = ({labelName, name, step = null, max = null, selected, placeholder}: {labelName: string, name: string, step?: number | null, max?: number | null, selected: boolean, placeholder: string}) => (
     <div className={`form__item ${selected ? "" : "form__item-hidden"}`} >
         <label className="form__item-label" >{labelName}:</label>
