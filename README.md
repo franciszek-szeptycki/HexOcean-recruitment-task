@@ -9,6 +9,8 @@
 2. `cd HexOcean-recruitment-task`
 3. `npm install`
 4. `npm run dev`
+5. <a href="#" onclick="navigator.clipboard.writeText('Text to be copied')">Click to Copy</a>
+
 
 ## Task execution time:
  - `1 hours`  Learning about react-final-form / redux-form
