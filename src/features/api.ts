@@ -13,7 +13,7 @@ export const resSuccess = () => {
 export const resNetworkError = (() => {
 
     // SETTING UP NETWORK ERROR MESSAGE
-    toast("Network error, try again later...", {type: "error", autoClose: 2000})
+    toast("Network error, try again later...", {type: "error", autoClose: 3000})
 })
 
 
@@ -32,6 +32,6 @@ export const resFailed = (err: any) => {
             "slices_of_bread": "Number of slices of bread"
         }
 
-        toast(`"${propToName[prop]}" ${err.response.data[prop][0]}`, {type: "error", autoClose: 2000})
+        toast(`"${propToName[prop]}" ${err.response.data[prop][0]}`, {type: "error", autoClose: 3000})
     }
 }
