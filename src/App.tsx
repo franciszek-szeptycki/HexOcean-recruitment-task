@@ -65,6 +65,16 @@ export default () => {
                         form.reset()
                     }, [submitTime])
 
+                    // RESETING DETAILED INPUTS ON CHANGING DISH TYPE
+                    useEffect(() => {
+                        const {values} = form.getState()
+                        const baseProps = ['name', 'preparation_time', 'type']
+                        for (const key in values) {
+                            // @ts-ignore
+                            if (!baseProps.includes(key)) form.change(key, undefined)
+                        }
+                    }, [dishType])
+
                     return <FormContent handleSubmit={handleSubmit} dishType={dishType}
                             setDishType={setDishType} form={form} disabled={disabled} />
                 }
